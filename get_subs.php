@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // !!! ВСТАВЬ СЮДА СВОЙ ТОКЕН ОТ BOTFAHNER !!!
-$botToken = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"; 
+$botToken = "8620515294:AAHXKaZEtSxBaVA6EDSvikb4Pn1XA4OVLI0"; 
 
 // Получаем имя канала и очищаем от случайных знаков @
 $channel = isset($_GET['channel']) ? trim($_GET['channel']) : '';
