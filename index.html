@@ -3,279 +3,837 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прайс-лист каналов</title>
+    <title>Реклама в ТОП Бизнес-Каналах Telegram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --bg-accent: #1e1b4b;
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --telegram: #24A1DE;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --discount-bg: rgba(16, 185, 129, 0.1);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
         }
+
         body {
-            background-color: #0d1622;
-            color: #ffffff;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
         }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
         .container {
-            max-width: 1100px;
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .header {
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .header-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 80px 0 60px 0;
+            position: relative;
         }
-        .header h1 {
-            font-size: 28px;
-            color: #ffffff;
-            margin-bottom: 10px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            z-index: -1;
         }
-        .header p {
-            color: #7a8b9e;
+
+        .promo-badge {
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, var(--primary), #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--telegram);
+            color: #fff;
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 25px rgba(36, 161, 222, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(36, 161, 222, 0.4);
+            background: #2094cd;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature-title {
+            font-weight: 600;
             font-size: 16px;
+            margin-bottom: 8px;
         }
-        
-        /* Сетка для трех карточек в один ряд */
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Main Heading for Channels */
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+        }
+
+        /* Channels Grid */
         .channels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
-        
-        /* Сама карточка */
+
         .channel-card {
-            background-color: #172331;
-            border-radius: 14px;
-            padding: 24px;
-            border: 1px solid #233549;
+            background: var(--bg-card);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 30px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
         }
-        
-        /* Блок с аватаркой и названием */
+
+        .channel-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
         .channel-header {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin-bottom: 20px;
+            gap: 16px;
+            margin-bottom: 24px;
         }
-        .avatar {
-            width: 56px;
-            height: 56px;
+
+        .channel-avatar {
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #2f455e;
-            flex-shrink: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: #1e293b;
         }
-        .header-info {
+
+        .channel-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .channel-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subs-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.15);
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-bottom: 6px;
+            width: fit-content;
+        }
+
+        .channel-link {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .channel-link:hover {
+            color: var(--primary);
+        }
+
+        /* Price Options */
+        .price-list {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            width: 100%;
+            gap: 16px;
+            margin-bottom: 30px;
+            flex-grow: 1;
         }
-        .name-row {
+
+        .price-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-        }
-        .channel-name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-        
-        /* Плашка с подписчиками */
-        .subs-badge {
-            font-size: 13px;
-            color: #8da2bb;
-            background-color: #1f3044;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-weight: 500;
-        }
-        .channel-tag {
-            font-size: 14px;
-            color: #00a2ed;
-            text-decoration: none;
-        }
-        .channel-tag:hover {
-            text-decoration: underline;
+            border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        /* Раздел с прайсом */
-        .price-section {
-            border-top: 1px solid #233549;
-            padding-top: 16px;
-            margin-top: auto;
+        .format-name {
+            font-size: 14px;
+            font-weight: 600;
         }
-        .price-title {
+
+        .format-desc {
             font-size: 12px;
-            color: #647a90;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 12px;
-            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
-        .price-list {
-            background: #121b26;
+
+        .price-block {
+            text-align: right;
+        }
+
+        .old-price {
+            font-size: 13px;
+            color: var(--danger);
+            text-decoration: line-through;
+            margin-bottom: 2px;
+        }
+
+        .new-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .card-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            text-align: center;
+            padding: 12px;
             border-radius: 10px;
-            padding: 12px 14px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card-btn:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+        }
+
+        /* Mega Bundle Section */
+        .bundle-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
+            border: 2px solid #a855f7;
+            border-radius: 32px;
+            padding: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+        }
+
+        .bundle-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f59e0b;
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .bundle-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .bundle-section {
+                padding: 30px 20px;
+            }
+            h1 { font-size: 34px; }
+        }
+
+        .bundle-info h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .bundle-info p {
+            color: #cbd5e1;
+            font-size: 15px;
             margin-bottom: 20px;
         }
-        .price-item {
+
+        .included-channels {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .inc-tag {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bundle-prices {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .bundle-price-item {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
-            margin: 8px 0;
-            font-size: 14px;
+            align-items: center;
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
-        .price-item:first-child { margin-top: 0; }
-        .price-item:last-child { margin-bottom: 0; }
-        
-        .price-format {
-            color: #b0c4de;
-        }
-        .price-value {
-            font-weight: 600;
-            color: #00ffaa;
-        }
-        
-        /* Кнопка связи */
-        .btn-contact {
-            display: block;
+
+        .bundle-cta {
+            background: linear-gradient(90deg, #a855f7, #6366f1);
+            color: #fff;
+            font-weight: 700;
             text-align: center;
-            background-color: #00a2ed;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: background 0.2s;
+            padding: 16px;
+            border-radius: 12px;
+            margin-top: 10px;
+            display: block;
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
         }
-        .btn-contact:hover {
-            background-color: #0086c4;
+
+        .bundle-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Trust & Guarantees */
+        .trust-section {
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .trust-box {
+            padding: 20px;
+        }
+
+        .trust-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .trust-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .trust-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .trust-btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Footer */
+        .footer-contacts {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 24px;
+        }
+
+        .footer-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer-desc {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(36, 161, 222, 0.1);
+            border: 1px solid rgba(36, 161, 222, 0.2);
+            color: var(--telegram);
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .contact-link.primary {
+            background: var(--telegram);
+            color: #fff;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(36, 161, 222, 0.2);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>Наш прайс-лист на рекламу</h1>
-        <p>Выберите подходящий канал для размещения вашего предложения</p>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">Biz<span>Media</span></div>
+            <div class="header-badge">🔥 Сезонное предложение</div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="promo-badge">Скидка -50% на все размещения</div>
+            <h1>Увеличьте поток клиентов через рекламу в <span>ТОП бизнес-каналах</span></h1>
+            <p class="hero-subtitle">
+                Охватите платежеспособную и вовлеченную аудиторию предпринимателей, инвесторов и топ-менеджеров. Запустите эффективную кампанию уже сегодня.
+            </p>
+            <a href="https://t.me/Evg_Drm" target="_blank" class="cta-btn">
+                Забронировать место
+            </a>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Целевой трафик</div>
+                <div class="feature-desc">Только живая бизнес-аудитория без ботов.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡️</div>
+                <div class="feature-title">Быстрый запуск</div>
+                <div class="feature-desc">Размещение в кратчайшие сроки по вашему графику.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-title">Высокий отклик</div>
+                <div class="feature-desc">Наши подписчики активно читают контент и доверяют рекомендациям.</div>
+            </div>
+        </section>
+
+        <!-- Pricing Intro -->
+        <div class="section-title">Наши Telegram-каналы</div>
+        <div class="section-subtitle">Выберите подходящую площадку или заберите сразу всё по мега-скидке</div>
+
+        <!-- Channels Grid -->
+        <section class="channels-grid">
+            
+            <!-- Channel 1 -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="image_1f5f59.png" alt="Business Rules Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>Business Rules</h3>
+                        <div class="subs-badge">👥 142 300 подп.</div>
+                        <a href="https://t.me/Business_rules" target="_blank" class="channel-link">
+                            @Business_rules
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Формат 2/48</div>
+                            <div class="format-desc">2 часа в топе, 48 часов в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">18 500 ₽</div>
+                            <div class="new-price">14 000 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Формат 4/72</div>
+                            <div class="format-desc">4 часа в топе, 72 часа в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">19 000 ₽</div>
+                            <div class="new-price">14 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">5 постов / неделя</div>
+                            <div class="format-desc">+ Закреп на всю неделю</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">19 500 ₽</div>
+                            <div class="new-price">15 000 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+
+            <!-- Channel 2 -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="image_1f5f18.png" alt="Biz People Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>Biz People</h3>
+                        <div class="subs-badge">👥 97 100 подп.</div>
+                        <a href="https://t.me/biz_people" target="_blank" class="channel-link">
+                            @biz_people
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Формат 2/48</div>
+                            <div class="format-desc">2 часа в топе, 48 часов в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">11 800 ₽</div>
+                            <div class="new-price">8 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Format 4/72</div>
+                            <div class="format-desc">4 часа в топе, 72 часа в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">12 400 ₽</div>
+                            <div class="new-price">8 800 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">5 постов / неделя</div>
+                            <div class="format-desc">+ Закреп на всю неделю</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">12 900 ₽</div>
+                            <div class="new-price">9 200 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+
+            <!-- Channel 3 -->
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="image_1f5efc.png" alt="All About Business Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>All About Business</h3>
+                        <div class="subs-badge">👥 74 800 подп.</div>
+                        <a href="https://t.me/all_about_busines" target="_blank" class="channel-link">
+                            @all_about_busines
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Формат 2/48</div>
+                            <div class="format-desc">2 часа в топе, 48 часов в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">9 000 ₽</div>
+                            <div class="new-price">6 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Формат 4/72</div>
+                            <div class="format-desc">4 часа в топе, 72 часа в ленте</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">9 800 ₽</div>
+                            <div class="new-price">6 800 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">5 постов / неделя</div>
+                            <div class="format-desc">+ Закреп на всю неделю</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">11 000 ₽</div>
+                            <div class="new-price">7 300 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+        </section>
+
+        <!-- Mega Bundle Section -->
+        <section class="bundle-section">
+            <div class="bundle-badge">🔥 Максимальная выгода</div>
+            <div class="bundle-grid">
+                <div class="bundle-info">
+                    <h2>Комбо-пакет: Реклама сразу в 3-х каналах</h2>
+                    <p>Идеальное решение для масштабных запусков. Вы получаете максимальный охват аудитории со скидкой 50% от суммарной стоимости размещения.</p>
+                    <div class="included-channels">
+                        <div class="inc-tag">@Business_rules</div>
+                        <div class="inc-tag">@biz_people</div>
+                        <div class="inc-tag">@all_about_busines</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bundle-prices">
+                        <div class="bundle-price-item">
+                            <div><strong>Пакет 2/48 в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">40 600 ₽</div>
+                                <div class="new-price" style="font-size:20px;">20 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="bundle-price-item">
+                            <div><strong>Пакет 4/72 в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">42 200 ₽</div>
+                                <div class="new-price" style="font-size:20px;">21 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="bundle-price-item">
+                            <div><strong>5 постов/нед + Закреп в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">45 800 ₽</div>
+                                <div class="new-price" style="font-size:20px;">23 000 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Evg_Drm" target="_blank" class="bundle-cta">Забронировать комбо со скидкой</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Guarantees -->
+        <section class="trust-section">
+            <div class="trust-grid">
+                <div class="trust-box">
+                    <div class="trust-icon">⭐️</div>
+                    <div class="trust-title">Отзывы клиентов</div>
+                    <p class="feature-desc" style="margin-bottom:15px;">Ознакомьтесь с реальными кейсами и отзывами рекламодателей, которые уже получили результат.</p>
+                    <a href="https://t.me/Biz_otz" target="_blank" class="trust-btn">Читать отзывы</a>
+                </div>
+                <div class="trust-box">
+                    <div class="trust-icon">📄</div>
+                    <div class="trust-title">Работа по договору</div>
+                    <p class="feature-desc">Мы ценим безопасность и прозрачность. Возможна официальная работа по договору со всеми закрывающими документами.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Contacts -->
+        <footer class="footer-contacts">
+            <div class="footer-title">Готовы запустить рекламу?</div>
+            <div class="footer-desc">Напишите нам прямо сейчас, чтобы зафиксировать скидку 50% и выбрать лучшие даты размещения.</div>
+            <div class="contact-buttons">
+                <a href="https://t.me/Evg_Drm" target="_blank" class="contact-link primary">
+                    💬 Менеджер @Evg_Drm
+                </a>
+                <a href="https://t.me/DmitriyBerskiy" target="_blank" class="contact-link">
+                    💬 Менеджер @DmitriyBerskiy
+                </a>
+            </div>
+        </footer>
+
     </div>
-
-    <div class="channels-grid">
-        
-        <div class="channel-card">
-            <div>
-                <div class="channel-header">
-                    <img class="avatar" src="img1.jpg" alt="Business Rules">
-                    <div class="header-info">
-                        <div class="name-row">
-                            <span class="channel-name">Business Rules</span>
-                            <span class="subs-badge">124k</span>
-                        </div>
-                        <a href="https://t.me/Business_rules" class="channel-tag" target="_blank">@Business_rules</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="price-section">
-                <div class="price-title">Стоимость размещения</div>
-                <div class="price-list">
-                    <div class="price-item">
-                        <div class="price-format">Формат 1/24</div>
-                        <div class="price-value">1 500 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Формат 2/48</div>
-                        <div class="price-value">2 200 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Нативка (без удаления)</div>
-                        <div class="price-value">4 500 ₽</div>
-                    </div>
-                </div>
-                <a href="https://t.me/your_username" class="btn-contact" target="_blank">Заказать рекламу</a>
-            </div>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="channel-header">
-                    <img class="avatar" src="img2.jpg" alt="Biz People">
-                    <div class="header-info">
-                        <div class="name-row">
-                            <span class="channel-name">Biz People</span>
-                            <span class="subs-badge">85k</span>
-                        </div>
-                        <a href="https://t.me/biz_people" class="channel-tag" target="_blank">@biz_people</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="price-section">
-                <div class="price-title">Стоимость размещения</div>
-                <div class="price-list">
-                    <div class="price-item">
-                        <div class="price-format">Формат 1/24</div>
-                        <div class="price-value">1 200 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Формат 2/48</div>
-                        <div class="price-value">1 800 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Нативка (без удаления)</div>
-                        <div class="price-value">3 800 ₽</div>
-                    </div>
-                </div>
-                <a href="https://t.me/your_username" class="btn-contact" target="_blank">Заказать рекламу</a>
-            </div>
-        </div>
-
-        <div class="channel-card">
-            <div>
-                <div class="channel-header">
-                    <img class="avatar" src="img3.jpg" alt="All About Business">
-                    <div class="header-info">
-                        <div class="name-row">
-                            <span class="channel-name">All About</span>
-                            <span class="subs-badge">43k</span>
-                        </div>
-                        <a href="https://t.me/all_about_busines" class="channel-tag" target="_blank">@all_about_busines</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="price-section">
-                <div class="price-title">Стоимость размещения</div>
-                <div class="price-list">
-                    <div class="price-item">
-                        <div class="price-format">Формат 1/24</div>
-                        <div class="price-value">800 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Format 2/48</div>
-                        <div class="price-value">1 200 ₽</div>
-                    </div>
-                    <div class="price-item">
-                        <div class="price-format">Нативка (без удаления)</div>
-                        <div class="price-value">2 500 ₽</div>
-                    </div>
-                </div>
-                <a href="https://t.me/your_username" class="btn-contact" target="_blank">Заказать рекламу</a>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 </body>
 </html>
