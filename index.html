@@ -732,7 +732,7 @@
                     </div>
                     <div class="channel-info">
                         <h3>Business Rules</h3>
-                        <div class="subs-badge">👥 72 340 подписчиков</div>
+                        <div class="subs-badge" id="subs-Business_rules">👥 подписчиков</div></div>
                         <a href="https://t.me/Business_rules" target="_blank" class="channel-link">
                             @Business_rules
                         </a>
@@ -961,6 +961,42 @@
         </footer>
 
     </div>
+<script>
+    // Список каналов для обновления
+    const channels = ['Business_rules', 'biz_people', 'all_about_busines'];
 
+    // Функция, которая запрашивает данные у нашего php-файла
+    async function updateChannelSubs(channelName) {
+        try {
+            // Вызываем созданный PHP скрипт
+            const response = await fetch(`get_subs.php?channel=${channelName}`);
+            const data = await response.json();
+            
+            if (data.success) {
+                // Красиво форматируем число (например: 72340 превратит в "72 340")
+                const formattedCount = new Intl.NumberFormat('ru-RU').format(data.count);
+                
+                // Находим нужную плашку на сайте и меняем текст
+                const badge = document.getElementById(`subs-${channelName}`);
+                if (badge) {
+                    badge.innerHTML = `👥 ${formattedCount} подписчиков`;
+                }
+            }
+        } catch (error) {
+            console.error(`Не удалось обновить счетчик для ${channelName}:`, error);
+        }
+    }
+
+    // Функция для запуска обновления всех каналов сразу
+    function updateAllCounters() {
+        channels.forEach(channel => updateChannelSubs(channel));
+    }
+
+    // Запускаем обновление сразу при открытии сайта посетителем
+    document.addEventListener("DOMContentLoaded", updateAllCounters);
+
+    // Включаем "онлайн" обновление: сайт будет сам перепроверять данные каждые 5 минут (300000 мс)
+    setInterval(updateAllCounters, 300000);
+</script>
 </body>
 </html>
