@@ -1,0 +1,35 @@
+<?php
+// Указываем браузеру, что выдаем данные в формате JSON
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+
+// !!! ВСТАВЬТЕ СЮДА ВАШ ТОКЕН ОТ BOTFATHER !!!
+$botToken = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"; 
+
+// Получаем имя канала из запроса сайта
+$channel = isset($_GET['channel']) ? trim($_GET['channel']) : '';
+
+// Список разрешенных каналов (для безопасности, чтобы через вашего бота не проверяли чужие каналы)
+$allowed_channels = ['Business_rules', 'biz_people', 'all_about_busines'];
+
+if (!in_array($channel, $allowed_channels)) {
+    echo json_encode(['success' => false, 'message' => 'Неверное имя канала']);
+    exit;
+}
+
+// Отправляем запрос к серверам Telegram
+$url = "https://api.telegram.org/bot{$botToken}/getChatMembersCount?chat_id=@{$channel}";
+$response = @file_get_contents($url);
+
+if ($response) {
+    $data = json_decode($response, true);
+    if (isset($data['ok']) && $data['ok'] == true) {
+        // Возвращаем точное количество подписчиков
+        echo json_encode(['success' => true, 'count' => $data['result']]);
+        exit;
+    }
+}
+
+// Если что-то пошло не так (например, упал сервер ТГ), возвращаем ошибку
+echo json_encode(['success' => false, 'message' => 'Ошибка API Telegram']);
+?>
