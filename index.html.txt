@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс-лист каналов</title>
+    <style>
+        /* Общие стили темной темы как на скрине */
+        body {
+            background-color: #08121e;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Сетка для карточек */
+        .channels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* Стиль карточки */
+        .channel-card {
+            background-color: #121f33;
+            border: 1px solid #1b2d4a;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .channel-card:hover {
+            border-color: #253f66;
+            transform: translateY(-2px);
+        }
+
+        /* Шапка карточки (Аватар + Текст) */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Круглая аватарка */
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover; /* Чтобы фото не искажалось */
+            background-color: #1b2d4a;
+            flex-shrink: 0;
+        }
+
+        /* Блок с названиями */
+        .header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+        }
+
+        /* Строка: Название + Подписчики */
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .channel-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        /* Количество подписчиков */
+        .subs-count {
+            font-size: 14px;
+            color: #8fa0b5;
+            background-color: #1c2e47;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Ссылка на канал */
+        .channel-link {
+            font-size: 14px;
+            color: #00a2e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .channel-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="channels-container">
+
+        <!-- Карточка 1: Business Rules -->
+        <div class="channel-card">
+            <div class="card-header">
+                <!-- Аватарка из img1.jpg -->
+                <img src="img1.jpg" alt="Business Rules" class="avatar">
+                <div class="header-text">
+                    <div class="title-row">
+                        <h2 class="channel-name">Business Rules</h2>
+                        <!-- Количество подписчиков (можно менять цифру) -->
+                        <span class="subs-count">125,400 подп.</span>
+                    </div>
+                    <a href="https://t.me/Business_rules" class="channel-link">@Business_rules</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 2: Biz People -->
+        <div class="channel-card">
+            <div class="card-header">
+                <!-- Аватарка из img2.jpg -->
+                <img src="img2.jpg" alt="Biz People" class="avatar">
+                <div class="header-text">
+                    <div class="title-row">
+                        <h2 class="channel-name">Biz People</h2>
+                        <!-- Количество подписчиков (можно менять цифру) -->
+                        <span class="subs-count">84,100 подп.</span>
+                    </div>
+                    <a href="https://t.me/biz_people" class="channel-link">@biz_people</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Карточка 3: All About Business -->
+        <div class="channel-card">
+            <div class="card-header">
+                <!-- Аватарка из img3.jpg -->
+                <img src="img3.jpg" alt="All About Business" class="avatar">
+                <div class="header-text">
+                    <div class="title-row">
+                        <h2 class="channel-name">All About Business</h2>
+                        <!-- Количество подписчиков (можно менять цифру) -->
+                        <span class="subs-count">43,700 подп.</span>
+                    </div>
+                    <a href="https://t.me/all_about_busines" class="channel-link">@all_about_busines</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
