@@ -653,4 +653,351 @@
 
         .contact-buttons {
             display: flex;
-            justify-content:
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(36, 161, 222, 0.1);
+            border: 1px solid rgba(36, 161, 222, 0.2);
+            color: var(--telegram);
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .contact-link.primary {
+            background: var(--telegram);
+            color: #fff;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(36, 161, 222, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Biz<span>Media</span></div>
+            <a href="#bundle" class="header-badge">🔥 Сезонное предложение</a>
+        </header>
+
+        <section class="hero">
+            <a href="#bundle" class="promo-badge">Скидка -50% на Комбо-Пакет</a>
+            <h1>Купить рекламу в Телеграм:<span> поток клиентов из ТОП бизнес-каналов в ТГ</span></h1>
+            <p class="hero-subtitle">
+                Охватите платежеспособную аудиторию предпринимателей и инвесторов. Реклама в Telegram — это быстрый запуск кампании и гарантированный охват. Закажите эффективное размещение рекламы в ТГ уже сегодня!
+            </p>
+            <a href="#prices" class="cta-btn">
+                Посмотреть цены
+            </a>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Целевой трафик</div>
+                <div class="feature-desc">Только живая бизнес-аудитория без ботов.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡️</div>
+                <div class="feature-title">Быстрый запуск</div>
+                <div class="feature-desc">Размещение в кратчайшие сроки по вашему графику.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-title">Высокий отклик</div>
+                <div class="feature-desc">Наши подписчики активно читают контент и доверяют рекомендациям.</div>
+            </div>
+        </section>
+
+        <div id="prices" class="section-title">Наши Telegram-каналы</div>
+        <div class="section-subtitle">Выберите подходящую площадку или заберите сразу всё по мега-скидке</div>
+
+        <section class="channels-grid">
+            
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="img1.jpg" alt="Business Rules Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>Business Rules</h3>
+                        <div class="subs-badge" id="subs-Business_rules">👥 Загрузка...</div>
+                        <a href="https://t.me/Business_rules" target="_blank" class="channel-link">
+                            @Business_rules
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 2/48</div>
+                            <div class="format-desc">Ваш пост находится 2 часа в Топе, затем перекрывается другими постами и еще висит 48 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">18 500 ₽</div>
+                            <div class="new-price">14 000 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 4/72</div>
+                            <div class="format-desc">Ваш пост находится 4 часа в Топе, затем перекрывается другими постами и еще висит 72 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">19 000 ₽</div>
+                            <div class="new-price">14 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item highlighted">
+                        <div>
+                            <div class="format-name">🔥 Вариант 5/Неделя + Закреп</div>
+                            <div class="format-desc">Ваш пост находится в топе 5 часов, после через перекрывается другими постами, но еще висит на стене и в закрепе в течении недели</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">19 500 ₽</div>
+                            <div class="new-price">15 000 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="img2.jpg" alt="Biz People Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>Biz People</h3>
+                        <div class="subs-badge" id="subs-biz_people">👥 Загрузка...</div>
+                        <a href="https://t.me/biz_people" target="_blank" class="channel-link">
+                            @biz_people
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 2/48</div>
+                            <div class="format-desc">Ваш пост находится 2 часа в Топе, затем перекрывается другими постами и еще висит 48 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">11 800 ₽</div>
+                            <div class="new-price">8 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 4/72</div>
+                            <div class="format-desc">Ваш пост находится 4 часа в Топе, затем перекрывается другими постами и еще висит 72 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">12 400 ₽</div>
+                            <div class="new-price">8 800 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item highlighted">
+                        <div>
+                            <div class="format-name">🔥 Вариант 5/Неделя + Закреп</div>
+                            <div class="format-desc">Ваш пост находится в топе 5 часов, после через перекрывается другими постами, но еще висит на стене и в закрепе в течении недели</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">12 900 ₽</div>
+                            <div class="new-price">9 200 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+
+            <div class="channel-card">
+                <div class="channel-header">
+                    <div class="channel-avatar">
+                        <img src="img3.jpg" alt="All About Business Avatar">
+                    </div>
+                    <div class="channel-info">
+                        <h3>All About Business</h3>
+                        <div class="subs-badge" id="subs-all_about_busines">👥 Загрузка...</div>
+                        <a href="https://t.me/all_about_busines" target="_blank" class="channel-link">
+                            @all_about_busines
+                        </a>
+                    </div>
+                </div>
+                <div class="price-list">
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 2/48</div>
+                            <div class="format-desc">Ваш пост находится 2 часа в Топе, затем перекрывается другими постами и еще висит 48 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">9 000 ₽</div>
+                            <div class="new-price">6 500 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item">
+                        <div>
+                            <div class="format-name">Вариант 4/72</div>
+                            <div class="format-desc">Ваш пост находится 4 часа в Топе, затем перекрывается другими постами и еще висит 72 часов в ленте.</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">9 800 ₽</div>
+                            <div class="new-price">6 800 ₽</div>
+                        </div>
+                    </div>
+                    <div class="price-item highlighted">
+                        <div>
+                            <div class="format-name">🔥 Вариант 5/Неделя + Закреп</div>
+                            <div class="format-desc">Ваш пост находится в топе 5 часов, после через перекрывается другими постами, но еще висит на стене и в закрепе в течении недели</div>
+                        </div>
+                        <div class="price-block">
+                            <div class="old-price">11 000 ₽</div>
+                            <div class="new-price">7 300 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://t.me/Evg_Drm" target="_blank" class="card-btn">Купить рекламу</a>
+            </div>
+        </section>
+
+        <section id="bundle" class="bundle-section">
+            <div class="bundle-badge">🔥 Максимальная выгода</div>
+            <div class="bundle-grid">
+                <div class="bundle-info">
+                    <div class="bundle-advantage">🎯 Суммарный охват: 140 547 подписчиков</div>
+                    <h2>Комбо-пакет: Реклама сразу в 3-х каналах</h2>
+                    <p>Идеальное решение для масштабных запусков. Вы получаете максимальный охват аудитории со скидкой 50% от суммарной стоимости размещения.</p>
+                    <div class="included-channels">
+                        <a href="https://t.me/Business_rules" target="_blank" class="inc-tag">@Business_rules</a>
+                        <a href="https://t.me/biz_people" target="_blank" class="inc-tag">@biz_people</a>
+                        <a href="https://t.me/all_about_busines" target="_blank" class="inc-tag">@all_about_busines</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="bundle-prices">
+                        <div class="bundle-price-item">
+                            <div><strong>Пакет 2/48 в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">40 600 ₽</div>
+                                <div class="new-price" style="font-size:20px;">20 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="bundle-price-item">
+                            <div><strong>Пакет 4/72 в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">42 200 ₽</div>
+                                <div class="new-price" style="font-size:20px;">21 000 ₽</div>
+                            </div>
+                        </div>
+                        <div class="bundle-price-item">
+                            <div><strong>Пакет 5/неделя + Закреп в 3-х каналах</strong></div>
+                            <div style="text-align: right;">
+                                <div class="old-price">45 800 ₽</div>
+                                <div class="new-price" style="font-size:20px;">23 000 ₽</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://t.me/Evg_Drm" target="_blank" class="bundle-cta">Забронировать Комбо со Скидкой</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="reviews" class="section-title">Отзывы наших клиентов</div>
+        <div class="section-subtitle">Реальные кейсы, результаты и обратная связь, подгружаемые прямо из Telegram</div>
+
+        <section class="reviews-container">
+            <div class="reviews-grid">
+                <div class="tg-post-wrapper">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="Biz_otz/194" data-width="100%" data-userpic="false"></script>
+                </div>
+                <div class="tg-post-wrapper">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="Biz_otz/196" data-width="100%" data-userpic="false"></script>
+                </div>
+                <div class="tg-post-wrapper">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="Biz_otz/197" data-width="100%" data-userpic="false"></script>
+                </div>
+                <div class="tg-post-wrapper">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="Biz_otz/199" data-width="100%" data-userpic="false"></script>
+                </div>
+                <div class="tg-post-wrapper">
+                    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="Biz_otz/200" data-width="100%" data-userpic="false"></script>
+                </div>
+            </div>
+
+            <div class="reviews-cta-container">
+                <a href="https://t.me/Biz_otz" target="_blank" class="reviews-attention-btn">
+                    🚀 Смотреть все отзывы
+                </a>
+            </div>
+        </section>
+
+        <section class="contract-section">
+            <div class="contract-icon">📄</div>
+            <div class="contract-title">Работа по договору</div>
+            <p class="contract-desc">Мы ценим безопасность и прозрачность. Возможна официальная работа по договору со всеми закрывающими юридическими документами.</p>
+        </section>
+
+        <footer class="footer-contacts">
+            <div class="footer-title">Готовы запустить рекламу?</div>
+            <div class="footer-desc">Напишите нам прямо сейчас, чтобы зафиксировать скидку 50% и выбрать лучшие даты размещения.</div>
+            <div class="contact-buttons">
+                <a href="https://t.me/Evg_Drm" target="_blank" class="contact-link primary">
+                    💬 Менеджер @Evg_Drm
+                </a>
+                <a href="https://t.me/DmitriyBerskiy" target="_blank" class="contact-link">
+                    💬 Менеджер @DmitriyBerskiy
+                </a>
+            </div>
+        </footer>
+
+    </div>
+<script>
+    // Текстовые имена каналов для обновления
+    const channels = ['Business_rules', 'biz_people', 'all_about_busines'];
+
+    // Функция, которая запрашивает данные у нашего php-файла
+    async function updateChannelSubs(channelName) {
+        try {
+            // Вызываем созданный PHP скрипт
+            const response = await fetch(`get_subs.php?channel=${channelName}`);
+            const data = await response.json();
+            
+            if (data.success) {
+                // Красиво форматируем число (например: 72340 превратит в "72 340")
+                const formattedCount = new Intl.NumberFormat('ru-RU').format(data.count);
+                
+                // Находим нужную плашку на сайте и меняем текст
+                const badge = document.getElementById(`subs-${channelName}`);
+                if (badge) {
+                    badge.innerHTML = `👥 ${formattedCount} подписчиков`;
+                }
+            } else {
+                // Выводим в консоль ошибку, если PHP скрипт вернул неудачу
+                console.error(`Ошибка PHP для канала ${channelName}:`, data.message);
+            }
+        } catch (error) {
+            console.error(`Не удалось обновить счетчик для ${channelName}:`, error);
+        }
+    }
+
+    // Функция для запуска обновления всех каналов сразу
+    function updateAllCounters() {
+        channels.forEach(channel => updateChannelSubs(channel));
+    }
+
+    // Запускаем обновление сразу при открытии сайта посетителем
+    document.addEventListener("DOMContentLoaded", updateAllCounters);
+
+    // Включаем "онлайн" обновление: сайт будет сам перепроверять данные каждые 5 минут
+    setInterval(updateAllCounters, 300000);
+</script>
+</body>
+</html>
