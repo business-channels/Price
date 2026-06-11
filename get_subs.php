@@ -1,35 +1,54 @@
 <?php
-// Указываем браузеру, что выдаем данные в формате JSON
+// Разрешаем запросы со страницы
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// !!! ВСТАВЬТЕ СЮДА ВАШ ТОКЕН ОТ BOTFATHER !!!
+// Включаем отображение ошибок для диагностики
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+// !!! ВСТАВЬ СЮДА СВОЙ ТОКЕН ОТ BOTFAHNER !!!
 $botToken = "123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ"; 
 
-// Получаем имя канала из запроса сайта
+// Получаем имя канала и очищаем от случайных знаков @
 $channel = isset($_GET['channel']) ? trim($_GET['channel']) : '';
+$channel = ltrim($channel, '@');
 
-// Список разрешенных каналов (для безопасности, чтобы через вашего бота не проверяли чужие каналы)
+// Список разрешенных каналов
 $allowed_channels = ['Business_rules', 'biz_people', 'all_about_busines'];
 
 if (!in_array($channel, $allowed_channels)) {
-    echo json_encode(['success' => false, 'message' => 'Неверное имя канала']);
+    echo json_encode(['success' => false, 'message' => 'Канал не разрешен в скрипте: ' . htmlspecialchars($channel)]);
     exit;
 }
 
-// Отправляем запрос к серверам Telegram
 $url = "https://api.telegram.org/bot{$botToken}/getChatMembersCount?chat_id=@{$channel}";
-$response = @file_get_contents($url);
 
-if ($response) {
-    $data = json_decode($response, true);
-    if (isset($data['ok']) && $data['ok'] == true) {
-        // Возвращаем точное количество подписчиков
-        echo json_encode(['success' => true, 'count' => $data['result']]);
-        exit;
-    }
+// Используем cURL вместо file_get_contents (он работает стабильнее и быстрее)
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Игнорируем проблемы с SSL хостинга
+
+$response = curl_exec($ch);
+$curl_error = curl_error($ch);
+curl_close($ch);
+
+// Если cURL вообще не смог отправить запрос
+if ($response === false) {
+    echo json_encode(['success' => false, 'message' => 'Ошибка сервера хостинга (cURL): ' . $curl_error]);
+    exit;
 }
 
-// Если что-то пошло не так (например, упал сервер ТГ), возвращаем ошибку
-echo json_encode(['success' => false, 'message' => 'Ошибка API Telegram']);
+$data = json_decode($response, true);
+
+if (isset($data['ok']) && $data['ok'] == true) {
+    // Всё отлично, отдаем число
+    echo json_encode(['success' => true, 'count' => $data['result']]);
+} else {
+    // Телеграм вернул ошибку (например, бот не админ или токен неверный)
+    $tg_error = isset($data['description']) ? $data['description'] : 'Неизвестная ошибка API';
+    echo json_encode(['success' => false, 'message' => 'Ошибка от Telegram: ' . $tg_error]);
+}
 ?>
